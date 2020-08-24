@@ -1,0 +1,63 @@
+<div class="background-sample">
+    <img src="/assets/img/logo.png">
+</div>
+<div class="caontainer conteudo-1 mb-3">
+    <div class="card">
+        <div class="row mb-3">
+            <div class="col-12 col-md-6 text-left mt-2 mb-2">
+                <span class="label-home">Venci. Parcela:</span>
+                <span class="ml-2">{{acordoCliente.dataVencimento | date: 'dd/MM/yyyy'}}</span>
+            </div>
+
+            <div class="col-12 col-md-6 text-left">
+                <span class="label-home">Valor Original:</span>
+                <span class="ml-2">{{transform(acordoCliente.valorOriginal)}}</span>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12 col-md-6 text-left mb-2">
+                <span class="label-home mr-2">Quntas vezes deseja parcelar ?</span>
+                <select class="select-parcelas" (change)="calcularParcelas($event.target.value)" [disabled]="propostaFinalizada">
+                    <option value="" selected disabled>Selecione</option>
+                    <option [value]="i+1" *ngFor="let parcela of numeroParcelas; let i = index">{{i +1}}</option>
+                </select>
+            </div>
+            <div class="col-12 col-md-6 text-left">
+                <span class="label-home">Valor Juros:</span>
+                <span class="ml-2">{{transform(acordoCliente.valorJuros)}}</span>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12 col-md-6 text-left mb-2">
+                <span class="label-home">Dias Atraso:</span>
+                <span class="ml-2">{{acordoCliente.diasAtraso}}</span>
+            </div>
+            <div class="col-12 col-md-6 text-left">
+                <span class="label-home">Valor Final:</span>
+                <span class="ml-2">{{transform(acordoCliente.valorFinal)}}</span>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12 col-md-6 text-left mb-2">
+                <span class="label-home">Duvidas ? Ligue:</span>
+                <span class="ml-2">{{acordoCliente.contatoColaborador}}</span>
+            </div>
+
+            <div class="col-12 col-md-6 text-left" *ngIf="parcelas.length > 0">
+                <span class="label-home">Parcelas:</span>
+                <table class="table">
+                    <tbody>
+                        <tr *ngFor="let parcela of parcelas; let i = index">
+                            <td>{{parcela.numeroParcela}} - {{parcela.valorParceDisplay}} </td>
+                            <td>Data Vencimento:  {{parcela.vencimentoParcela}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row flex-md-row-reverse mb-2">
+            <button *ngIf="!propostaFinalizada" type="button" class="btn btn-primary alinhamento-botao" (click)="efetuarAcordo()">Realizar Acordo</button>
+            <span *ngIf="propostaFinalizada" class="label-home">Acordo Realizado !</span>
+        </div>
+    </div>
+</div>

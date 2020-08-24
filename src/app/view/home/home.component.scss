@@ -1,0 +1,81 @@
+.background-sample{
+    background-image: url(/assets/img/banner-2.jpg);
+    height: auto;
+    margin: 0;
+    height: 400px;
+    text-align: center;
+}
+
+.conteudo-1{
+    width: 60%;
+    position: relative;
+    z-index: 99999;
+    margin-top: -55px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.card{
+    margin-top: 0px;
+    background: #fff;
+    -webkit-box-shadow: 3px 4px 61px -3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 3px 4px 61px -3px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 4px 61px -3px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 70px 60px;
+}
+
+.no-white-space{
+    white-space: nowrap;
+}
+
+.label-home{
+    color: #41536f;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.select-parcelas{
+    width: 18% !important;
+    border: unset !important;
+    border-bottom: 1px solid !important;
+    background-color: #fff;
+    background-clip: padding-box;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .label-home {
+        font-size: 12px;
+    }
+
+    .select-parcelas{
+        width: 35% !important;
+    }
+
+    .card{
+        padding: 0px 12px
+    }
+    .conteudo-1{
+        width: 90%;
+    }
+
+    .conteudo-1 > .card > .row{
+        flex-direction: column;
+    }
+
+    .alinhamento-botao{
+        width: 90%;
+        margin: auto;
+    }
+    .background-sample{
+        height: 275px;
+        background-position: 67% 10%;
+    }
+  }

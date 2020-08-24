@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "desafioPaschoalotto"
+    }
+  },
+  "defaultProject": "desafioPaschoalotto",
+  "cli": {
+    "analytics": false
+  }
 }
